@@ -28,7 +28,7 @@ Emails are sent by MailApp from rabbi@jewishchagrinfalls.com (name "Chabad at th
 
 ### Sheet tabs
 - **Registrations**: one row per submission. Tick "Added to DAAS" after entering the person in DAAS by hand (there is no DAAS integration, on purpose).
-- **Settings** (edit here, no code change needed): Chabad party open (checkbox; unticking greys out the Chabad option on the site and shows "The Chanukah party at Chabad is full."), Chabad capacity (people, blank = no limit), Organizer email (comma-separated; currently simi@ and rabbi@jewishchagrinfalls.com), Organization name, EIN, Website (used for the Stripe return link; set to `http://` until GitHub's HTTPS certificate is issued, then change to `https://menorahatthefalls.com`), Email sender name.
+- **Settings** (edit here, no code change needed): Chabad party open (checkbox; unticking greys out the Chabad option on the site and shows "The Chanukah party at Chabad is full."), Chabad capacity (people, blank = no limit), Organizer email (comma-separated; currently simi@ and rabbi@jewishchagrinfalls.com), Organization name, EIN, Website (used for the Stripe return link; `https://menorahatthefalls.com`), Email sender name.
 - **Summary**: registrations, total participants, Riverside count, Chabad count, donations paid, pending, not yet in DAAS.
 
 ## Content rules (from the organizer)
@@ -54,5 +54,5 @@ A @ 185.199.108.153 / .109.153 / .110.153 / .111.153; AAAA @ 2606:50c0:8000::153
 Kept untouched: Squarespace Domain Connect CNAME and the Email Security TXT records (SPF -all, DMARC reject, DKIM) because the domain sends no email. Last year's forwarding to jewishchagrinfalls.com was removed.
 
 ## Status (November 6, 2026)
-- Site live on http; GitHub HTTPS certificate pending. When "Enforce HTTPS" becomes available under Settings > Pages, tick it and set the sheet's Website setting to https.
+- Site live on https. GitHub HTTPS certificate issued and "Enforce HTTPS" ticked under Settings > Pages (http now redirects to https). Sheet's Website setting (Settings!B7) set to `https://menorahatthefalls.com`.
 - Tested: registration without donation (row + emails), donation redirect to live Stripe Checkout. A real paid test is done by the organizer, then refunded in Stripe.
