@@ -219,7 +219,6 @@ function sendEmails(r) {
   var sender = setting('Email sender name') || org;
   var paid = g('Payment status') === 'Paid';
 
-  var chabadYes = g('Chabad party') === 'Yes';
   var pin = '&#128205; ';
 
   var html = '<div style="font-family:Arial,sans-serif;font-size:15px;color:#222;max-width:560px;line-height:1.5">' +
@@ -233,7 +232,7 @@ function sendEmails(r) {
     '<b>5pm:</b> Enjoy music and entertainment with Jesse Jukebox and hot drinks.<br>' +
     '<b>5:30pm:</b> Menorah lighting and a Gelt Drop, with Chanukah treats raining down from a fire truck!</p>' +
     '<p>' + pin + '<b>Riverside Park, Chagrin Falls Main Street</b></p>' +
-    (chabadYes ? '<p>Followed by the <b>Chanukah party at Chabad</b><br>' + pin + 'Chabad at the Falls | 100 N Main Street, Suite 100</p>' : '') +
+    '<p>Followed by the <b>Chanukah party at Chabad</b><br>' + pin + 'Chabad at the Falls | 100 N Main Street, Suite 100</p>' +
     (g('Participants') ? '<p>Number of participants: ' + g('Participants') + '</p>' : '') +
     '<p>Chanukah begins on Friday, December 4th. Visit <a href="https://menorahatthefalls.com">menorahatthefalls.com</a> for the full schedule of nightly Menorah lightings in the Triangle in Chagrin Falls.</p>';
 
