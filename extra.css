@@ -76,3 +76,6 @@ select.field option{background:hsl(var(--card));color:hsl(var(--foreground))}
 .feature-circle img{transform:scale(1.16)}
 /* BH mark, top right */
 .bh-mark{text-align:right;color:hsl(var(--gold) / .85);font-size:.8rem;font-weight:500;letter-spacing:.08em;margin:-2rem 0 .75rem}
+/* Location lines link to Google Maps */
+.map-link{text-decoration:underline;text-decoration-color:hsl(var(--gold) / .35);text-underline-offset:3px;transition:color .2s}
+.map-link:hover{color:hsl(var(--gold))}
