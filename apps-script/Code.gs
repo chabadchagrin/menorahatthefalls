@@ -110,7 +110,7 @@ function doPost(e) {
     var other = Math.round(Math.max(0, Number(d.other) || 0) * 100) / 100;
     if (other > 25000) other = 0;
     var lines = picked.map(function (k) { return { name: ITEMS[k].name, amount: ITEMS[k].amount }; });
-    if (other > 0) lines.push({ name: 'OTHER DONATION', amount: other });
+    if (other > 0) lines.push({ name: 'Chanukah Donation', amount: other });
     var total = lines.reduce(function (s, l) { return s + l.amount; }, 0);
 
     var id = Utilities.getUuid().slice(0, 8);
@@ -232,20 +232,19 @@ function sendEmails(r) {
     '<p><b>Menorah lighting in Riverside Park</b><br>' +
     '<b>5pm:</b> Enjoy music and entertainment with Jesse Jukebox and hot drinks.<br>' +
     '<b>5:30pm:</b> Menorah lighting and a Gelt Drop, with Chanukah treats raining down from a fire truck!</p>' +
-    '<p>' + pin + '<a href="https://maps.app.goo.gl/YZuhB8dhWwj8TaRt9" style="color:#7a4b00"><b>Riverside Park, Chagrin Falls Main Street</b></a></p>' +
-    (chabadYes ? '<p>Followed by the <b>Chanukah party at Chabad</b><br>' + pin + '<a href="https://maps.app.goo.gl/dvTj5EaiTnVV9A2t8" style="color:#7a4b00">Chabad at the Falls | 100 N Main Street, Suite 100</a></p>' : '') +
+    '<p>' + pin + '<a href="https://maps.app.goo.gl/YZuhB8dhWwj8TaRt9" style="color:#1a5fb4;text-decoration:underline"><b>Riverside Park, Chagrin Falls Main Street</b></a></p>' +
+    (chabadYes ? '<p>Followed by the <b>Chanukah party at Chabad</b><br>' + pin + '<a href="https://maps.app.goo.gl/dvTj5EaiTnVV9A2t8" style="color:#1a5fb4;text-decoration:underline">Chabad at the Falls | 100 N Main Street, Suite 100</a></p>' : '') +
     (g('Participants') ? '<p>Number of participants: ' + g('Participants') + '</p>' : '') +
-    '<p>Chanukah begins on Friday, December 4th. Visit <a href="https://menorahatthefalls.com">menorahatthefalls.com</a> for the full schedule of nightly Menorah lightings in the Triangle in Chagrin Falls.</p>';
+    '<p>Chanukah begins on Friday, December 4th. Visit <a href="https://menorahatthefalls.com" style="color:#1a5fb4;text-decoration:underline">menorahatthefalls.com</a> for the full schedule of nightly Menorah lightings in the Triangle in Chagrin Falls.</p>';
 
   if (paid) {
     html += '<hr style="border:none;border-top:1px solid #ddd;margin:24px 0">' +
       '<p>Thank you so much for your contribution, and for spreading the light of Chanukah!</p>' +
       '<h3 style="margin:0 0 8px">Donation receipt</h3>' +
       '<table style="font-size:15px;border-collapse:collapse">' +
-      tr('Receipt #', g('Receipt #')) +
       tr('Date', Utilities.formatDate(new Date(), 'America/New_York', 'MMMM d, yyyy')) +
       tr('Donor', esc(g('Name'))) +
-      tr('Donation', esc(g('Donation items'))) +
+      tr('Donation', 'Chanukah Donation') +
       tr('Amount', '$' + Number(g('Amount paid')).toFixed(2)) +
       tr('Received by', esc(org) + '.') +
       '</table>' +
@@ -254,7 +253,7 @@ function sendEmails(r) {
   } else if (g('Payment status') === 'Donation not completed') {
     html += '<p style="color:#555">Your registration is confirmed. The donation was not completed, so no payment was taken.</p>';
   }
-  html += '<p style="margin-top:24px"><a href="https://jewishchagrinfalls.com">jewishchagrinfalls.com</a></p></div>';
+  html += '<p style="margin-top:24px"><a href="https://jewishchagrinfalls.com" style="color:#1a5fb4;text-decoration:underline">jewishchagrinfalls.com</a></p></div>';
 
   MailApp.sendEmail({
     to: g('Email'),
