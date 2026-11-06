@@ -45,6 +45,7 @@ Emails are sent by MailApp from rabbi@jewishchagrinfalls.com (name "Chabad at th
 - `apps-script/Code.gs`: copy of the backend. To change the backend: edit in the Apps Script editor, save, then Deploy > Manage deployments > Edit > Version: New version > Deploy (URL stays the same). Keep this copy in sync.
 
 ## Changing things
+- Search/share preview: `<title>`, description and `og:`/`twitter:` tags at the top of `index.html`. Title "Chanukah in Chagrin Falls | Light up the night!". Share image is the menorah-crowd photo from jewishchagrinfalls.com (`whole.jpg` on images.squarespace-cdn.com); if it is removed from that site, point the tags at `assets/banner.jpg` instead. After changing, refresh the preview in Facebook's Sharing Debugger.
 - Website text/images: edit files in this repo (GitHub web editor is fine). GitHub Pages republishes in about a minute.
 - Graphics: edit in Canva, export, replace the two .jpg files in `assets/` (keep the names, keep them under about 1 MB).
 - Switching Stripe keys: Apps Script > Project Settings > Script Properties > `STRIPE_SECRET_KEY`.
