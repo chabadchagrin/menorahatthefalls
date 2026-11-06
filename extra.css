@@ -74,3 +74,5 @@ select.field option{background:hsl(var(--card));color:hsl(var(--foreground))}
 .site-link:hover{text-decoration:underline}
 /* Icons are exported with a scalloped edge; zoom slightly so the round frame shows a clean circle */
 .feature-circle img{transform:scale(1.16)}
+/* BH mark, top right */
+.bh-mark{text-align:right;color:hsl(var(--gold) / .85);font-size:.8rem;font-weight:500;letter-spacing:.08em;margin:-2rem 0 .75rem}
