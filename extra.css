@@ -1,0 +1,74 @@
+/* Small additions on top of last year's stylesheet (style.css). */
+[hidden]{display:none!important}
+
+/* Four feature circles: 2 across on phones, 4 across on wider screens */
+.features-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1rem}
+@media (min-width:768px){.features-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}}
+.feature-circle{width:7rem;height:7rem}
+@media (min-width:768px){.feature-circle{width:7.5rem;height:7.5rem}}
+.features-grid h3{line-height:1.3}
+@media (min-width:768px){.features-grid h3{font-size:1rem}.features-grid p{font-size:.8rem}}
+/* Speed Sketchers logo shown unchanged on a white disc so it fits the other circles */
+.logo-circle{background:#fff;display:flex;align-items:center;justify-content:center}
+.logo-circle img{width:82%;height:auto;object-fit:contain}
+
+/* Text inputs and select, matching last year's input styling */
+.field{display:flex;height:2.5rem;width:100%;border-radius:calc(var(--radius) - 4px);border:1px solid hsl(var(--border) / .6);
+  background:hsl(var(--input) / .8);padding:.5rem .75rem;font:inherit;font-size:1rem;color:hsl(var(--foreground));
+  transition:all .3s;-webkit-appearance:none;appearance:none}
+@media (min-width:768px){.field{font-size:.875rem}}
+.field::placeholder{color:hsl(var(--foreground) / .5)}
+.field:hover{border-color:hsl(var(--gold) / .6);box-shadow:0 0 15px rgba(255,215,0,.2)}
+.field:focus{outline:none;border-color:hsl(var(--gold));box-shadow:0 0 0 2px hsl(var(--gold) / .4)}
+select.field{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f2efe6' stroke-opacity='.5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .75rem center;padding-right:2.25rem}
+select.field option{background:hsl(var(--card));color:hsl(var(--foreground))}
+.field.pl-8{padding-left:2rem}
+.dollar{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#fcd34d;font-weight:600;font-size:1.125rem;pointer-events:none;z-index:1}
+
+/* Round gold checkboxes */
+.round-check{-webkit-appearance:none;appearance:none;flex-shrink:0;margin:0;width:20px;height:20px;border-radius:9999px;
+  border:1.5px solid hsl(var(--gold) / .6);background:transparent;cursor:pointer;display:grid;place-content:center;transition:all .2s}
+@media (min-width:768px){.round-check{width:24px;height:24px;border-width:2px}}
+.round-check::before{content:"";width:10px;height:10px;opacity:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b0e1e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
+@media (min-width:768px){.round-check::before{width:14px;height:14px}}
+.round-check:checked{background:hsl(var(--gold));border-color:hsl(var(--gold))}
+.round-check:checked::before{opacity:1}
+.round-check:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--gold) / .4)}
+
+/* Location choices */
+.location-card{display:flex;align-items:center;gap:.75rem;min-height:56px;padding:.75rem;border-radius:1rem;border:1px solid hsl(var(--border) / .6);cursor:pointer;transition:all .2s;color:hsl(var(--foreground))}
+@media (min-width:768px){.location-card{border-radius:.5rem}}
+.location-card:hover{border-color:hsl(var(--gold) / .6)}
+.location-card:has(input:checked){border-color:hsl(var(--gold));background:hsl(var(--gold) / .1);color:hsl(var(--gold))}
+.location-card.is-full{opacity:.5;cursor:not-allowed}
+.location-card.is-full input{cursor:not-allowed}
+
+/* Donation cards */
+.donation-card-x{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:10px 14px;border-radius:10px;
+  border:2px solid hsl(var(--gold) / .3);background:hsl(var(--gold) / .05);cursor:pointer;transition:all .2s}
+@media (min-width:768px){.donation-card-x{min-height:60px;padding:.875rem 1.25rem;border-radius:1rem}}
+.donation-card-x:hover{border-color:hsl(var(--gold) / .6);background:hsl(var(--gold) / .1)}
+.donation-card-x:has(input:checked){border-color:hsl(var(--gold));background:hsl(var(--gold) / .12)}
+.donation-card-x .dl{display:flex;align-items:center;gap:.625rem}
+@media (min-width:768px){.donation-card-x .dl{gap:.875rem}}
+.donation-label{font-size:15px;font-weight:500;line-height:1.25;color:hsl(var(--foreground) / .9)}
+.donation-amount{font-size:15px;font-weight:600;white-space:nowrap;color:hsl(var(--gold) / .8)}
+@media (min-width:768px){.donation-label,.donation-amount{font-size:1rem}}
+
+/* Submit button */
+.submit-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;width:100%;height:3.5rem;
+  border-radius:.75rem;border:1px solid hsl(var(--gold) / .3);cursor:pointer;font:inherit;font-weight:600;font-size:1.125rem;
+  color:hsl(var(--background));background:linear-gradient(to right,hsl(var(--gold)),hsl(var(--amber)),hsl(var(--gold)));
+  box-shadow:0 10px 15px -3px rgba(0,0,0,.1);transition:all .3s}
+.submit-btn:hover{box-shadow:0 0 40px rgba(255,215,0,.6);transform:scale(1.02)}
+.submit-btn:active{transform:scale(.98)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.form-error{color:#fca5a5;font-size:.9rem;text-align:center}
+.thanks{text-align:center;color:hsl(var(--foreground) / .9);line-height:1.6;padding:1rem 0 2rem}
+.thanks h3{color:hsl(var(--gold));font-weight:700;font-size:1.25rem;margin-bottom:.5rem}
+
+.site-link{color:hsl(var(--gold));font-weight:500;letter-spacing:.025em;text-decoration:none}
+.site-link:hover{text-decoration:underline}
