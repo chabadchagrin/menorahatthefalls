@@ -72,3 +72,5 @@ select.field option{background:hsl(var(--card));color:hsl(var(--foreground))}
 
 .site-link{color:hsl(var(--gold));font-weight:500;letter-spacing:.025em;text-decoration:none}
 .site-link:hover{text-decoration:underline}
+/* Icons are exported with a scalloped edge; zoom slightly so the round frame shows a clean circle */
+.feature-circle img{transform:scale(1.16)}
